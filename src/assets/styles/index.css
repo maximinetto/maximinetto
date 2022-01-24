@@ -7,6 +7,12 @@ $dark-secondary-color: #1e2db6;
 $dark-tertiary-color: #6010af;
 $hero-black: #402c54;
 $button-color: #3626f1;
+$title-color: #495fd2;
+$nav-height: 60px;
+$card-about-color: #384171;
+$about-light-color: #3476c4;
+$about-dark-color: #2b4293;
+$about-subtitle-color: #23559f;
 
 *,
 *:before,
@@ -23,6 +29,12 @@ body {
   padding: 0;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
+}
+
+button {
+  outline: none;
+  border: none;
+  background: transparent;
 }
 
 ul {
@@ -42,7 +54,7 @@ img {
 }
 
 .header {
-  height: 60px;
+  height: $nav-height;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -71,7 +83,7 @@ img {
   color: $primary-color;
   font-weight: 700;
   position: relative;
-  padding: 1em;
+  padding: 0.5em 1em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,9 +123,17 @@ img {
 }
 
 .hero {
-  height: calc(100vh - 60px);
-  padding: 1.5em 1.2em;
+  height: calc(100vh - $nav-height);
+}
+
+.hero,
+.about {
+  padding: 2em 1.2em;
   text-align: center;
+}
+
+.about {
+  margin-bottom: $nav-height;
 }
 
 .hero__margin {
@@ -123,6 +143,7 @@ img {
 
 .hero__content {
   text-align: center;
+  padding-top: 1.5em;
 }
 
 .hero__color {
@@ -193,11 +214,11 @@ img {
   height: 140px;
   width: 140px;
   object-fit: cover;
-  border: 5px solid #000;
+  border: 10px solid #000;
 }
 
 .btns {
-  margin-top: 1em;
+  margin-top: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,8 +226,6 @@ img {
 
 .btn {
   display: inline-block;
-  outline: none;
-  border: none;
   background: $button-color;
   padding: 1em 1.2em;
   display: flex;
@@ -223,6 +242,69 @@ img {
 
 .btn--rounded {
   border-radius: 1.5em;
+}
+
+.title {
+  color: $title-color;
+  font-size: 2rem;
+  margin-bottom: 1.2em;
+}
+
+.photo--rectangle {
+  height: 200px;
+  width: 180px;
+  border-radius: 0;
+}
+
+.about__paragraph {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin-bottom: 1.2em;
+}
+
+.about__important {
+  color: $about-light-color;
+  font-weight: 500;
+}
+
+.about__important--underline {
+  text-decoration: underline;
+}
+
+.about__important--dark {
+  color: $about-dark-color;
+}
+
+.info__title {
+  font-size: 1.1rem;
+  color: $about-subtitle-color;
+  font-weight: 500;
+}
+
+.info__content {
+  font-size: 1rem;
+  margin-top: 0.5em;
+  display: block;
+}
+
+.social-network {
+  border: 3px solid #5b638c;
+  padding: 0.3em;
+  margin-top: 1em;
+  display: inline-block;
+}
+
+.social-network--left-spacing {
+  margin-left: 0.5em;
+}
+
+.social-network__icon {
+  color: #23559f;
+  vertical-align: middle;
+}
+
+.banner {
+  margin-top: 1.5em;
 }
 
 @keyframes circle {
