@@ -14,6 +14,10 @@ $about-light-color: #3476c4;
 $about-dark-color: #2b4293;
 $about-subtitle-color: #23559f;
 
+:root {
+  --wave-height: 50px;
+}
+
 *,
 *:before,
 *:after {
@@ -28,7 +32,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  overflow-x: hidden;
 }
 
 button {
@@ -48,7 +51,7 @@ a {
   color: inherit;
 }
 
-img,
+img:not(.wave),
 svg {
   max-width: 100%;
 }
@@ -206,24 +209,34 @@ svg {
   animation: circle 1s infinite alternate-reverse;
 }
 
+.hero-container {
+  position: relative;
+  overflow: hidden;
+}
+
 .wave {
-  $height: 140px;
-  height: $height;
-  width: 600000px;
+  height: var(--wave-height);
   position: absolute;
+  transform: rotate(180deg);
+  width: 100%;
+  color: $primary-color;
   left: 0;
-  bottom: calc($nav-height);
-  background-image: url("../img/wave.svg");
-  background-position: bottom;
-  animation: s wave linear 3s infinite;
+  bottom: 0;
+  animation: wave linear 3s infinite;
+}
+
+.wave--right {
+  left: auto;
+  right: -100%;
+  animation: wave linear 3s infinite;
 }
 
 @keyframes wave {
   from {
-    transform: translateX(100%);
+    transform: rotate(180deg) translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: rotate(180deg) translateX(100%);
   }
 }
 

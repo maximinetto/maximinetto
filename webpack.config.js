@@ -47,7 +47,7 @@ module.exports = (env, argv) => {
     output: {
       filename: "[name].[contenthash].js",
       path: path.resolve(__dirname, "dist"),
-      assetModuleFilename: "assets/[hash][ext]",
+      assetModuleFilename: isDevelopment ? "[name][ext]" : "assets/[hash][ext]",
     },
     plugins,
     ...(isDevelopment && {
