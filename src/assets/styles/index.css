@@ -27,8 +27,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
 button {
@@ -48,9 +48,9 @@ a {
   color: inherit;
 }
 
-img {
+img,
+svg {
   max-width: 100%;
-  height: auto;
 }
 
 .header {
@@ -199,14 +199,32 @@ img {
 .hero__scroll {
   display: inline-block;
   margin-left: 1em;
-}
-
-.hero__scroll--small {
   width: 2.5rem;
 }
 
 .hero__circle {
   animation: circle 1s infinite alternate-reverse;
+}
+
+.wave {
+  $height: 140px;
+  height: $height;
+  width: 600000px;
+  position: absolute;
+  left: 0;
+  bottom: calc($nav-height);
+  background-image: url("../img/wave.svg");
+  background-position: bottom;
+  animation: s wave linear 3s infinite;
+}
+
+@keyframes wave {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 .photo {

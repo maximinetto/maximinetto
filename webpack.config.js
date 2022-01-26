@@ -24,7 +24,16 @@ module.exports = (env, argv) => {
 
   const cssRule = {
     test: /\.css$/i,
-    use: ["css-loader", "postcss-loader"],
+    use: [
+      {
+        loader: "css-loader",
+        options: {
+          url: true,
+          importLoaders: 1,
+        },
+      },
+      "postcss-loader",
+    ],
   };
 
   if (isProduction) {
@@ -38,7 +47,7 @@ module.exports = (env, argv) => {
     output: {
       filename: "[name].[contenthash].js",
       path: path.resolve(__dirname, "dist"),
-      publicPath: "/",
+      assetModuleFilename: "assets/[hash][ext]",
     },
     plugins,
     ...(isDevelopment && {
@@ -54,21 +63,17 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          test: /\.html$/i,
+          use: ["html-loader"],
+        },
+        {
           test: /\.(js)$/,
           exclude: /node_modules/,
           use: ["babel-loader"],
         },
         {
-          test: /\.(jpg|jpeg|png|svg)/,
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                name: isDevelopment ? "[name].[ext]" : "[contenthash].[ext]",
-                outputPath: "static/",
-              },
-            },
-          ],
+          test: /\.(jpeg)/,
+          type: "asset/resource",
         },
         cssRule,
       ],
