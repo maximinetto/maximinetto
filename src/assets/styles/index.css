@@ -127,6 +127,17 @@ svg {
 
 .hero {
   height: calc(100vh - $nav-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media screen and (min-height: 600px) {
+  .hero {
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .hero,
@@ -146,7 +157,7 @@ svg {
 
 .hero__content {
   text-align: center;
-  padding-top: 1.5em;
+  padding-top: clamp(1em, 3.5vh, 1.5em);
 }
 
 .hero__color {
@@ -215,7 +226,7 @@ svg {
 }
 
 .wave {
-  height: var(--wave-height);
+  height: calc(10px + 9vh);
   position: absolute;
   transform: rotate(180deg);
   width: 100%;
@@ -249,7 +260,7 @@ svg {
 }
 
 .btns {
-  margin-top: 2em;
+  margin-top: clamp(1em, 4vh, 2em);
   display: flex;
   align-items: center;
   justify-content: center;
