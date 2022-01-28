@@ -13,6 +13,9 @@ $card-about-color: #384171;
 $about-light-color: #3476c4;
 $about-dark-color: #2b4293;
 $about-subtitle-color: #23559f;
+$card-title-color: #154a98;
+$main-dark-color: #000;
+$main-light-color: #fff;
 
 :root {
   --wave-height: 50px;
@@ -141,13 +144,10 @@ svg {
 }
 
 .hero,
-.about {
+.about,
+.proyect {
   padding: 2em 1.2em;
   text-align: center;
-}
-
-.about {
-  margin-bottom: $nav-height;
 }
 
 .hero__margin {
@@ -212,7 +212,6 @@ svg {
 
 .hero__scroll {
   display: inline-block;
-  margin-left: 1em;
   width: 2.5rem;
 }
 
@@ -234,11 +233,13 @@ svg {
   left: 0;
   bottom: 0;
   animation: wave linear 3s infinite;
+  margin: 0;
+  border: none;
 }
 
 .wave--right {
   left: auto;
-  right: -100%;
+  right: calc(-100% + 1px);
   animation: wave linear 3s infinite;
 }
 
@@ -274,6 +275,8 @@ svg {
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .btn__icon {
@@ -286,10 +289,20 @@ svg {
   border-radius: 1.5em;
 }
 
+.btn--ghost {
+  background: transparent;
+  color: $button-color;
+  border: 1px solid $button-color;
+}
+
 .title {
   color: $title-color;
   font-size: 2rem;
   margin-bottom: 1.2em;
+}
+
+.title--no-space-top {
+  margin-top: 0;
 }
 
 .photo--rectangle {
@@ -347,6 +360,44 @@ svg {
 
 .banner {
   margin-top: 1.5em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title {
+  order: 1;
+}
+
+.card__content {
+  order: 3;
+}
+
+.card__img {
+  order: 2;
+}
+
+.card__title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: $card-title-color;
+}
+
+.card__description {
+  font-size: 1rem;
+  color: $main-dark-color;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
 }
 
 @keyframes circle {
