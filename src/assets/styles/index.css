@@ -16,6 +16,7 @@ $about-subtitle-color: #23559f;
 $card-title-color: #154a98;
 $main-dark-color: #000;
 $main-light-color: #fff;
+$tecnology-title-color: #3b3434;
 
 :root {
   --wave-height: 50px;
@@ -145,7 +146,8 @@ svg {
 
 .hero,
 .about,
-.proyect {
+.proyect,
+.tecnology {
   padding: 2em 1.2em;
   text-align: center;
 }
@@ -299,6 +301,7 @@ svg {
   color: $title-color;
   font-size: 2rem;
   margin-bottom: 1.2em;
+  width: 100%;
 }
 
 .title--no-space-top {
@@ -398,6 +401,30 @@ svg {
   align-items: center;
   justify-content: center;
   margin-bottom: 2em;
+}
+
+.tecnology {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--wave-height);
+}
+
+.tecnology__container {
+  display: inline-block;
+  margin: 0.5em;
+}
+
+.tecnology__img {
+  width: 40%;
+  height: auto;
+}
+
+.tecnology__title {
+  font-size: 1.2rem;
+  color: $tecnology-title-color;
+  font-weight: 700;
 }
 
 @keyframes circle {
