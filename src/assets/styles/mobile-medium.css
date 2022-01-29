@@ -1,0 +1,44 @@
+@import "base.css";
+
+@media only screen and (min-height: 600px) {
+  .hero {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 520px) {
+  .nav-container,
+  .header {
+    height: auto;
+  }
+
+  .header {
+    position: static;
+  }
+
+  .nav-container {
+    text-align: right;
+    padding-right: 2em;
+  }
+
+  .nav,
+  .nav__item {
+    display: inline-block;
+    padding: 0.4em 1em;
+  }
+
+  .nav__item {
+    font-size: 1rem;
+  }
+
+  .nav__link {
+    display: inline-block;
+    padding: 0;
+    font-weight: 400;
+  }
+
+  .nav__icon {
+    display: none;
+  }
+}

@@ -1,0 +1,19 @@
+@media screen and (min-width: 768px) {
+  .tecnology {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .nav__item {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .tecnology {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .tecnology__item:last-child {
+    grid-column: 4 / span 1;
+  }
+}
