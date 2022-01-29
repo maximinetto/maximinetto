@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
   const isDevelopment = argv.mode === "development";
 
   const plugins = [
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./src/index.html", cache: false }),
     new CleanWebpackPlugin(),
     new ESLintWebpackPlugin(),
   ];
@@ -90,7 +90,7 @@ module.exports = (env, argv) => {
           new CssMinimizerPlugin(),
           new ImageMinimizerPlugin({
             minimizer: {
-              implementation: ImageMinimizerPlugin.imageminMinify,
+              implementation: ImageMinimizerPlugin.imageminGenerate,
               options: {
                 // Lossless optimization with custom option
                 // Feel free to experiment with options for better result for you
