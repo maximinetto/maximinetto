@@ -5,13 +5,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 const CriticalCssPlugin = require("critical-css-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const { extendDefaultPlugins } = require("svgo");
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
   const isDevelopment = argv.mode === "development";
 
   const plugins = [
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./src/index.html", cache: false }),
     new CleanWebpackPlugin(),
     new ESLintWebpackPlugin(),
   ];
@@ -43,7 +45,7 @@ module.exports = (env, argv) => {
   }
 
   return {
-    entry: "./src/assets/scripts/index.js",
+    entry: "./src/assets/scripts/view/index.js",
     output: {
       filename: "[name].[contenthash].js",
       path: path.resolve(__dirname, "dist"),
@@ -72,7 +74,7 @@ module.exports = (env, argv) => {
           use: ["babel-loader"],
         },
         {
-          test: /\.(jpeg)/,
+          test: /\.(jpe?g|png|gif|svg)$/i,
           type: "asset/resource",
         },
         cssRule,
@@ -84,7 +86,43 @@ module.exports = (env, argv) => {
     ...(isProduction && {
       optimization: {
         minimize: true,
-        minimizer: [new CssMinimizerPlugin()],
+        minimizer: [
+          new CssMinimizerPlugin(),
+          new ImageMinimizerPlugin({
+            minimizer: {
+              implementation: ImageMinimizerPlugin.imageminGenerate,
+              options: {
+                // Lossless optimization with custom option
+                // Feel free to experiment with options for better result for you
+                plugins: [
+                  ["gifsicle", { interlaced: true }],
+                  ["jpegtran", { progressive: true }],
+                  ["optipng", { optimizationLevel: 5 }],
+                  // Svgo configuration here https://github.com/svg/svgo#configuration
+                  [
+                    "svgo",
+                    {
+                      plugins: extendDefaultPlugins([
+                        {
+                          name: "removeViewBox",
+                          active: false,
+                        },
+                        {
+                          name: "addAttributesToSVGElement",
+                          params: {
+                            attributes: [
+                              { xmlns: "http://www.w3.org/2000/svg" },
+                            ],
+                          },
+                        },
+                      ]),
+                    },
+                  ],
+                ],
+              },
+            },
+          }),
+        ],
       },
     }),
   };

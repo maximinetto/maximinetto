@@ -1,0 +1,81 @@
+@import "base.css";
+
+$nav-height: 52px;
+
+@media only screen and (min-height: 600px) {
+  .hero {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 520px) {
+  .nav-container,
+  .header {
+    height: auto;
+  }
+
+  .header {
+    top: 0;
+    bottom: auto;
+    height: $nav-height;
+  }
+
+  .nav-container {
+    text-align: right;
+    padding-right: 2em;
+  }
+
+  .nav,
+  .nav__item {
+    display: inline-block;
+    padding: 0.4em 1em;
+  }
+
+  .nav__item {
+    font-size: 1rem;
+  }
+
+  .nav__link {
+    display: inline-block;
+    padding: 0;
+    font-weight: 400;
+  }
+
+  .nav__icon {
+    display: none;
+  }
+
+  .hero {
+    margin-top: $nav-height;
+    height: calc(100% - $nav-height - var(--wave-height));
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .hero-container {
+    min-height: 100vh;
+  }
+
+  .hero__content {
+    order: 1;
+    text-align: left;
+  }
+
+  .photo {
+    order: 2;
+  }
+
+  .photo--move-medium {
+    margin-top: -10rem;
+  }
+
+  .btns {
+    justify-content: flex-start;
+  }
+
+  .btn:first-child {
+    margin-left: 0;
+  }
+}

@@ -1,21 +1,7 @@
-$primary-color: #3733e9;
-$dark-primary-color: #1713b4;
-$secondary-color: #17396b;
-$light-secondary-color: #1534d7;
-$hero-secondary-color: #1713b4;
-$dark-secondary-color: #1e2db6;
-$dark-tertiary-color: #6010af;
-$hero-black: #402c54;
-$button-color: #3626f1;
-$title-color: #495fd2;
-$nav-height: 60px;
-$card-about-color: #384171;
-$about-light-color: #3476c4;
-$about-dark-color: #2b4293;
-$about-subtitle-color: #23559f;
+@import "base.css";
 
 :root {
-  --wave-height: 50px;
+  --wave-height: calc(7px + 9vh);
 }
 
 *,
@@ -51,7 +37,7 @@ a {
   color: inherit;
 }
 
-img:not(.wave),
+img,
 svg {
   max-width: 100%;
 }
@@ -72,34 +58,24 @@ svg {
 
 .nav {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   height: 100%;
   text-align: center;
 }
 
 .nav__item {
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 
 .nav__link {
   color: $primary-color;
   font-weight: 700;
   position: relative;
-  padding: 0.5em 1em 0;
+  padding: 0 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  .nav__link-text {
-    font-size: 0.7rem;
-    order: 1;
-  }
-
-  .nav__icon {
-    width: 24px;
-    height: 24px;
-  }
 
   &::after {
     content: "";
@@ -125,18 +101,29 @@ svg {
   }
 }
 
+.nav__link-text {
+  order: 1;
+}
+
+.nav__icon {
+  width: 24px;
+  height: 24px;
+}
+
 .hero {
-  height: calc(100vh - $nav-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: calc(100% - var(--wave-height));
 }
 
 .hero,
-.about {
+.about,
+.proyect,
+.tecnology {
   padding: 2em 1.2em;
   text-align: center;
-}
-
-.about {
-  margin-bottom: $nav-height;
 }
 
 .hero__margin {
@@ -146,23 +133,23 @@ svg {
 
 .hero__content {
   text-align: center;
-  padding-top: 1.5em;
+  padding-top: clamp(1em, 3.5vh, 1.5em);
 }
 
 .hero__color {
   color: $secondary-color;
 }
 
-.hero__color-light {
+.hero__color--light {
   color: $light-secondary-color;
 }
 
-.hero__color-dark {
+.hero__color--dark {
   color: $dark-secondary-color;
   font-weight: 700;
 }
 
-.hero__color-black {
+.hero__color--black {
   color: $hero-black;
   font-weight: 700;
 
@@ -171,11 +158,11 @@ svg {
   }
 }
 
-.hero__color-secondary {
+.hero__color--secondary {
   color: $dark-tertiary-color;
 }
 
-.hero__color-regular {
+.hero__color--regular {
   color: $hero-secondary-color;
 }
 
@@ -183,25 +170,20 @@ svg {
   font-weight: 700;
 }
 
-.hero__text {
-  font-size: 1rem;
-}
-
 .italic {
   font-style: italic;
 }
 
-.hero__text-medium {
-  font-size: 1.2rem;
+.text-medium {
+  font-size: clamp(1.2rem, 4vw, 2rem);
 }
 
-.hero__text-large {
-  font-size: 1.5rem;
+.text-large {
+  font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
 .hero__scroll {
   display: inline-block;
-  margin-left: 1em;
   width: 2.5rem;
 }
 
@@ -212,6 +194,7 @@ svg {
 .hero-container {
   position: relative;
   overflow: hidden;
+  height: calc(100vh - $nav-height);
 }
 
 .wave {
@@ -223,11 +206,13 @@ svg {
   left: 0;
   bottom: 0;
   animation: wave linear 3s infinite;
+  margin: 0;
+  border: none;
 }
 
 .wave--right {
   left: auto;
-  right: -100%;
+  right: calc(-100% + 1px);
   animation: wave linear 3s infinite;
 }
 
@@ -241,44 +226,72 @@ svg {
 }
 
 .photo {
+  --width: max(140px, 25vw);
   border-radius: 50%;
-  height: 140px;
-  width: 140px;
+  height: var(--width);
+  width: var(--width);
+  max-width: 250px;
+  max-height: 250px;
   object-fit: cover;
   border: 10px solid #000;
 }
 
 .btns {
-  margin-top: 2em;
+  margin-top: clamp(1em, 4vh, 2em);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn {
-  display: inline-block;
   background: $button-color;
   padding: 1em 1.2em;
-  display: flex;
+  display: inline-flex;
+  vertical-align: top;
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.btn--hide {
+  display: none;
 }
 
 .btn__icon {
-  margin-left: 0.7em;
   width: 16px;
   height: 16px;
+}
+
+.btn__icon--left {
+  margin-left: 0.7em;
+}
+
+.btn__icon--right {
+  margin-right: 0.7em;
+  margin-left: 0;
 }
 
 .btn--rounded {
   border-radius: 1.5em;
 }
 
+.btn--ghost {
+  background: transparent;
+  color: $button-color;
+  border: 1px solid $button-color;
+}
+
 .title {
   color: $title-color;
-  font-size: 2rem;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
   margin-bottom: 1.2em;
+  grid-column: 1 / -1;
+}
+
+.title--no-space-top {
+  margin-top: 0;
 }
 
 .photo--rectangle {
@@ -336,6 +349,68 @@ svg {
 
 .banner {
   margin-top: 1.5em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title {
+  order: 1;
+}
+
+.card__content {
+  order: 3;
+}
+
+.card__img {
+  order: 2;
+}
+
+.card__title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: $card-title-color;
+}
+
+.card__description {
+  font-size: 1rem;
+  color: $main-dark-color;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.tecnology {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  justify-content: start;
+  margin-bottom: var(--wave-height);
+  max-width: 55rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tecnology__img {
+  width: 35%;
+  height: auto;
+  max-width: 2rem;
+}
+
+.tecnology__title {
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  color: $tecnology-title-color;
+  font-weight: 700;
 }
 
 @keyframes circle {

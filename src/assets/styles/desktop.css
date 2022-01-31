@@ -1,0 +1,36 @@
+@media screen and (min-width: 768px) {
+  .tecnology {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .btns {
+    display: block;
+  }
+
+  .nav__item {
+    font-size: 1.2rem;
+  }
+
+  .btn--show-desktop {
+    display: inline-flex;
+  }
+
+  .hero__scroll {
+    display: block;
+    margin-top: 1em;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .tecnology {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .tecnology__item:last-child {
+    grid-column: 4 / span 1;
+  }
+
+  .photo--move-medium {
+    margin-left: 2em;
+  }
+}
