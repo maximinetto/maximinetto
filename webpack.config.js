@@ -32,6 +32,7 @@ module.exports = (env, argv) => {
         options: {
           url: true,
           importLoaders: 1,
+          import: true,
         },
       },
       "postcss-loader",
@@ -82,6 +83,7 @@ module.exports = (env, argv) => {
     },
     resolve: {
       extensions: ["*", ".js"],
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
     },
     ...(isProduction && {
       optimization: {

@@ -1,3 +1,10 @@
+@import "base.css";
+
+$space-card: min(4vw, 4rem);
+$height-card: 456px;
+$width-card: 371px;
+$gap-about: 1rem;
+
 @media screen and (min-width: 768px) {
   .tecnology {
     grid-template-columns: repeat(5, 1fr);
@@ -19,9 +26,20 @@
     display: block;
     margin-top: 1em;
   }
+
+  .about__content {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media screen and (min-width: 992px) {
+  .title {
+    display: inline-block;
+    flex-basis: 100%;
+  }
+
   .tecnology {
     grid-template-columns: repeat(7, 1fr);
   }
@@ -32,5 +50,73 @@
 
   .photo--move-medium {
     margin-left: 2em;
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    grid-gap: 0 $gap-about;
+  }
+
+  .photo--first-order {
+    grid-column: 1 / 2;
+  }
+
+  .about__content {
+    grid-column: 3 / 4;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about__paragraph {
+    margin-top: 0;
+  }
+
+  .social-network-container {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+
+  .banner {
+    grid-column: 3 / 4;
+  }
+
+  .photo-container {
+    order: 2;
+  }
+
+  .photo-container--spacing {
+    order: unset;
+    text-align: left;
+    position: relative;
+  }
+
+  .photo--rectangle {
+    width: 100%;
+    height: auto;
+    max-width: $width-card;
+    max-height: $height-card;
+  }
+
+  .line {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    max-height: $width-card;
+  }
+
+  .info-container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
   }
 }

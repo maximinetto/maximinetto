@@ -122,8 +122,13 @@ svg {
 .about,
 .proyect,
 .tecnology {
-  padding: 2em 1.2em;
+  padding: $padding-container 1.2em;
   text-align: center;
+  max-width: 1080px;
+}
+
+.about {
+  margin-bottom: 3rem;
 }
 
 .hero__margin {
@@ -216,6 +221,15 @@ svg {
   animation: wave linear 3s infinite;
 }
 
+@keyframes circle {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 50%);
+  }
+}
+
 @keyframes wave {
   from {
     transform: rotate(180deg) translateX(0);
@@ -241,6 +255,14 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.line {
+  display: none;
+}
+
+.line line {
+  stroke: $card-about-color;
 }
 
 .btn {
@@ -285,7 +307,7 @@ svg {
 
 .title {
   color: $title-color;
-  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  font-size: clamp(2rem, 4.5vw, 3rem);
   margin-bottom: 1.2em;
   grid-column: 1 / -1;
 }
@@ -297,7 +319,11 @@ svg {
 .photo--rectangle {
   height: 200px;
   width: 180px;
-  border-radius: 0;
+  border-radius: 30px;
+}
+
+.photo--blue {
+  border-color: $card-about-color;
 }
 
 .about__paragraph {
@@ -329,6 +355,7 @@ svg {
   font-size: 1rem;
   margin-top: 0.5em;
   display: block;
+  font-weight: 500;
 }
 
 .social-network {
@@ -358,6 +385,10 @@ svg {
 
 .card__title {
   order: 1;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: $card-title-color;
+  margin-bottom: 0.3em;
 }
 
 .card__content {
@@ -368,16 +399,11 @@ svg {
   order: 2;
 }
 
-.card__title {
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: $card-title-color;
-}
-
 .card__description {
   font-size: 1rem;
   color: $main-dark-color;
   width: 80%;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
 }
@@ -386,6 +412,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 2em;
   margin-bottom: 2em;
 }
 
@@ -411,14 +438,4 @@ svg {
   font-size: clamp(0.8rem, 2vw, 1.2rem);
   color: $tecnology-title-color;
   font-weight: 700;
-}
-
-@keyframes circle {
-  0% {
-    transform: translate(0, 0);
-    z-index: 5;
-  }
-  100% {
-    transform: translate(0, 50%);
-  }
 }
