@@ -416,6 +416,10 @@ svg {
   margin-bottom: 2em;
 }
 
+.btn--large {
+  font-size: 1.2rem;
+}
+
 .tecnology {
   display: grid;
   grid-gap: 1em;
