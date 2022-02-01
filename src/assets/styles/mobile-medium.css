@@ -1,7 +1,5 @@
 @import "base.css";
 
-$nav-height: 52px;
-
 @media only screen and (min-height: 600px) {
   .hero {
     align-items: center;
@@ -26,7 +24,7 @@ $nav-height: 52px;
   .header {
     top: 0;
     bottom: auto;
-    height: $nav-height;
+    height: $nav-height-medium;
   }
 
   .nav-container {
@@ -55,8 +53,8 @@ $nav-height: 52px;
   }
 
   .hero {
-    margin-top: $nav-height;
-    height: calc(100% - $nav-height - var(--wave-height));
+    margin-top: $nav-height-medium;
+    height: calc(100% - $nav-height-medium - var(--wave-height));
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
