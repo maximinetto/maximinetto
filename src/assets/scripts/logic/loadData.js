@@ -1,10 +1,8 @@
 const styles = {
-  tablet: { width: 520, pass: false },
   desktop: { width: 768, pass: false },
 };
 
 export const states = {
-  TABLET: "tablet",
   DESKTOP: "desktop",
   FINISHED: "finished",
 };

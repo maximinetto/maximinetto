@@ -16,13 +16,9 @@ module.exports = (env, argv) => {
     new HtmlWebpackPlugin({ template: "./src/index.html", cache: false }),
     new CleanWebpackPlugin(),
     new ESLintWebpackPlugin(),
+    new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
+    new CriticalCssPlugin(),
   ];
-
-  isProduction &&
-    plugins.push(
-      new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
-      new CriticalCssPlugin()
-    );
 
   const cssRule = {
     test: /\.css$/i,
@@ -39,11 +35,7 @@ module.exports = (env, argv) => {
     ],
   };
 
-  if (isProduction) {
-    cssRule.use.unshift(MiniCssExtractPlugin.loader);
-  } else {
-    cssRule.use.unshift("style-loader");
-  }
+  cssRule.use.unshift(MiniCssExtractPlugin.loader);
 
   return {
     entry: "./src/assets/scripts/view/index.js",
@@ -61,6 +53,11 @@ module.exports = (env, argv) => {
         port: 3000,
         open: true,
         hot: true,
+        static: "./dist",
+        devMiddleware: {
+          publicPath: "/",
+          writeToDisk: true,
+        },
       },
     }),
     module: {

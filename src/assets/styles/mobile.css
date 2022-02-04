@@ -1,4 +1,5 @@
 @import "base.css";
+@import "util.css";
 
 :root {
   --wave-height: calc(7px + 9vh);
@@ -139,6 +140,7 @@ svg {
 .hero__content {
   text-align: center;
   padding-top: clamp(1em, 3.5vh, 1.5em);
+  z-index: -1;
 }
 
 .hero__color {

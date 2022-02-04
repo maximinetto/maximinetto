@@ -7,7 +7,7 @@
     <title>Portfolio</title>
   </head>
   <body>
-    <header class="header">
+    <header class="header slide-in-top">
       <nav class="nav-container">
         <ul class="nav">
           <li class="nav__item">
@@ -84,7 +84,7 @@
     </header>
     <div class="hero-container">
       <section class="hero">
-        <picture class="photo-container">
+        <picture class="photo-container rellax" data-rellax-speed="-4">
           <source
             srcset="
               assets/img/avatar-maxi.webp,
@@ -94,11 +94,11 @@
           />
           <img
             src="assets/img/avatar-maxi.jpeg"
-            class="photo photo--move-medium"
+            class="photo photo--move-medium lazyload"
             alt="Foto"
           />
         </picture>
-        <article class="hero__content">
+        <article class="hero__content rellax" data-rellax-speed="2">
           <p class="hero__color text-medium hero__margin">¡Hola! 🖐 Soy</p>
           <p class="hero__color hero__color--light text-medium hero__margin">
             Maximiliano Minetto
@@ -165,8 +165,10 @@
       <img class="wave wave--right" src="assets/img/wave.svg" alt="wave" />
     </div>
     <section class="about">
-      <h2 class="title">Acerca de mí.</h2>
-      <picture class="photo-container photo-container--spacing">
+      <h2 class="title fade-in-left animation" id="title">Acerca de mí.</h2>
+      <picture
+        class="photo-container photo-container--spacing fade-in-left animation"
+      >
         <source
           srcset="
             assets/img/avatar-maxi.webp,
@@ -206,7 +208,7 @@
         />
       </svg>
 
-      <article class="about__content">
+      <article class="about__content fade-in-right animation">
         <p class="about__paragraph">
           Soy muy apacionado por la tecnología particularmente por el diseño
           web, amante del
@@ -240,7 +242,7 @@
           </p>
         </div>
       </article>
-      <div class="social-network-container">
+      <div class="social-network-container fade-in-fwd animation">
         <button class="social-network">
           <svg
             width="40"
@@ -276,7 +278,7 @@
         <img
           src="assets/img/logo-udelar.svg"
           alt="Udelar banner"
-          class="banner__icon"
+          class="banner__icon slide-in-elliptic-bottom-fwd animation"
         />
       </button>
     </section>
@@ -342,7 +344,9 @@
       </article>
     </section>
     <section class="tecnology">
-      <h2 class="title title--no-space-top title--no-space-bottom-on-desktop">Tecnologías.</h2>
+      <h2 class="title title--no-space-top title--no-space-bottom-on-desktop">
+        Tecnologías.
+      </h2>
       <div class="tecnology__item">
         <img src="assets/img/html.svg" alt="HTML" class="tecnology__img" />
         <h4 class="tecnology__title">HTML</h4>
