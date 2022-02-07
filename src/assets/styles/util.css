@@ -20,11 +20,11 @@
   animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
-.fade-in-fwd {
+.fade-in-fwd.visible {
   animation: fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
-.slide-in-elliptic-bottom-fwd {
+.slide-in-elliptic-bottom-fwd.visible {
   animation: slide-in-elliptic-bottom-fwd 0.7s
     cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -34,7 +34,6 @@
 .fade-in-fwd:not(.visible),
 .slide-in-elliptic-bottom-fwd:not(.visible) {
   opacity: 0;
-  visibility: hidden;
 }
 
 /* ----------------------------------------------

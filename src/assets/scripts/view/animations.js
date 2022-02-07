@@ -1,23 +1,26 @@
 import rellax from "rellax";
 
-rellax(".rellax");
-
+const elems = document.querySelectorAll(".parallax");
 const animations = document.querySelectorAll(".animation");
+let removeClasses = false;
 
-function animate(classname, target, options) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.intersectionRatio > 0) {
-        console.log(classname);
-        entry.target.classList.add(classname);
-      } else {
-        entry.target.classList.remove(classname);
+rellax(".parallax", {
+  horizontal: true,
+  callback: function (position) {
+    if (!removeClasses) {
+      for (let i = 0; i < elems.length; i++) {
+        const elem = elems[i];
+        elem.classList.remove(
+          "fade-in-left",
+          "fade-in-right",
+          "fade-in-fwd",
+          "slide-in-elliptic-bottom"
+        );
       }
-    });
-  }, options);
-
-  observer.observe(target);
-}
+    }
+    removeClasses = true;
+  },
+});
 
 for (let i = 0; i < animations.length; i++) {
   const animation = animations[i];
@@ -26,4 +29,18 @@ for (let i = 0; i < animations.length; i++) {
     rootMargin: "-100px",
     threshold: 1,
   });
+}
+
+function animate(classname, target, options) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > 0) {
+        entry.target.classList.add(classname);
+      } else {
+        entry.target.classList.remove(classname);
+      }
+    });
+  }, options);
+
+  observer.observe(target);
 }
