@@ -104,6 +104,7 @@ $gap-about: 1rem;
   }
 
   .card__footer {
+    margin-bottom: 0;
     justify-content: flex-end;
   }
 
@@ -118,12 +119,12 @@ $gap-about: 1rem;
     object-fit: cover;
     grid-column: 2 / span 1;
     grid-row: 1 / span 2;
-    padding-left: 3em;
+    padding-left: 5em;
   }
 
   .card--flip .card__img {
     grid-column: 1 / span 1;
-    padding-right: 3em;
+    padding-right: 5em;
     padding-left: 0;
   }
 }

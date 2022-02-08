@@ -269,7 +269,7 @@ svg {
 
 .btn {
   background: $button-color;
-  padding: 1em 1.2em;
+  padding: 1.1em 1.2em;
   display: inline-flex;
   vertical-align: top;
   align-items: center;
@@ -277,10 +277,16 @@ svg {
   color: #fff;
   margin-left: 1em;
   margin-right: 1em;
+  cursor: pointer;
 }
 
 .btn--hide {
   display: none;
+}
+
+.btn--small {
+  font-size: 0.8rem;
+  padding: 0.5em 1em;
 }
 
 .btn__icon {
@@ -304,6 +310,8 @@ svg {
 .btn--ghost {
   background: transparent;
   color: $button-color;
+  padding-top: 1em;
+  padding-bottom: 1em;
   border: 1px solid $button-color;
 }
 
@@ -316,6 +324,10 @@ svg {
 
 .title--no-space-top {
   margin-top: 0;
+}
+
+.title--proyect {
+  margin-top: 4rem;
 }
 
 .photo--rectangle {
