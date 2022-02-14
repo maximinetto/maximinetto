@@ -289,6 +289,11 @@ svg {
   padding: 0.5em 1em;
 }
 
+.btn--rounded.btn--ghost {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .btn__icon {
   width: 16px;
   height: 16px;
@@ -402,7 +407,7 @@ svg {
   font-size: 1.7rem;
   font-weight: 500;
   color: $card-title-color;
-  margin-bottom: 0.3em;
+  margin-bottom: 1em;
 }
 
 .card__content {
@@ -417,7 +422,7 @@ svg {
   font-size: 1rem;
   color: $main-dark-color;
   width: 80%;
-  margin-top: 0;
+  margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -434,7 +439,7 @@ svg {
   font-size: 1.2rem;
 }
 
-.tecnology {
+.tecnology-wrapper {
   display: grid;
   grid-gap: 1em;
   grid-template-columns: repeat(3, 1fr);

@@ -9,21 +9,31 @@ $gap-about: 1rem;
   .tecnology {
     padding-top: 3.5em;
     height: calc(100vh - $nav-height-medium);
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .tecnology .title {
+    flex: unset;
+  }
+
+  .tecnology-wrapper {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: min-content auto min-content min-content min-content auto;
-    margin-bottom: 0;
   }
 
   .tecnology__item:nth-of-type(-n + 5) {
-    grid-row: 3;
+    grid-row: 2;
   }
 
   .tecnology__item:nth-of-type(n + 6) {
-    grid-row: 4;
+    grid-row: 3;
   }
 
   .tecnology__item:nth-of-type(n + 11) {
-    grid-row: 5;
+    grid-row: 4;
   }
 
   .title--no-space-bottom-on-desktop {
@@ -61,7 +71,7 @@ $gap-about: 1rem;
     align-items: flex-start;
     justify-content: center;
     text-align: right;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   .card .btn:last-of-type {
@@ -211,22 +221,22 @@ $gap-about: 1rem;
     grid-gap: 1rem;
   }
 
-  .tecnology {
+  .tecnology-wrapper {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: min-content auto min-content min-content min-content auto;
     padding-top: 3em;
   }
 
   .tecnology__item:nth-of-type(-n + 7) {
-    grid-row: 3;
+    grid-row: 2;
   }
 
   .tecnology__item:nth-of-type(n + 8) {
-    grid-row: 4;
+    grid-row: 3;
   }
 
   .tecnology__item:last-of-type {
-    grid-row: 5;
+    grid-row: 4;
   }
 
   .tecnology__item:last-child {

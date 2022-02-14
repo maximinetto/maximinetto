@@ -14,7 +14,7 @@ for (let i = 0; i < animations.length; i++) {
   animate("visible", animation, {
     root: null,
     rootMargin: "-100px",
-    threshold: 1,
+    threshold: 0.7,
   });
 }
 
@@ -40,6 +40,7 @@ async function promiseListener(type, elem, options) {
 function animate(classname, target, options) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      console.log(entry);
       if (entry.intersectionRatio > 0) {
         entry.target.classList.add(classname);
         observer.unobserve(entry.target);
